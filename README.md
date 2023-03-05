@@ -1,4 +1,4 @@
-# VSCode DevContainer for Laravel + PHP8 + mysql
+# VSCode DevContainer for Laravel + PHP8 + postgresql
 
 ## Under Contruction!!
 
