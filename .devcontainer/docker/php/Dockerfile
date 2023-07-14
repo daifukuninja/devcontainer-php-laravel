@@ -1,4 +1,4 @@
-FROM php:8.0-fpm
+FROM php:8.2-fpm
 COPY php.ini /usr/local/etc/php/
 
 RUN apt-get update \
@@ -21,6 +21,21 @@ ENV COMPOSER_HOME /composer
 
 ENV PATH $PATH:/composer/vendor/bin
 
+RUN echo "source /usr/share/bash-completion/completions/git" >> ~/.bashrc
+
+WORKDIR /usr/share/bash-completion/completions
+
+# git promptの設定
+RUN curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+RUN curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+RUN chmod a+x git*.*
+RUN ls -l $PWD/git*.* | awk '{print "source "$9}' >> ~/.bashrc
+
+RUN echo "GIT_PS1_SHOWDIRTYSTATE=true" >> ~/.bashrc
+RUN echo "GIT_PS1_SHOWUNTRACKEDFILES=true" >> ~/.bashrc
+RUN echo "GIT_PS1_SHOWUPSTREAM=auto" >> ~/.bashrc
+
+RUN echo 'export PS1="\[\033[01;32m\]\u@\h\[\033[01;33m\] \w \[\033[01;31m\]\$(__git_ps1 \"(%s)\") \\n\[\033[01;34m\]\\$ \[\033[00m\]"' >> ~/.bashrc
 
 #WORKDIR /var/www
 WORKDIR /workspace
