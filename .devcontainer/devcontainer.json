@@ -6,13 +6,17 @@
 	],
 	"workspaceFolder": "/workspace",
 	"service": "php",
-	"extensions": [
-		"editorconfig.editorconfig",
-		"onecentlin.laravel-extension-pack",
-		"bmewburn.vscode-intelephense-client",
-		"neilbrayfield.php-docblocker",
-		"xdebug.php-debug"
-	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"editorconfig.editorconfig",
+				"onecentlin.laravel-extension-pack",
+				"bmewburn.vscode-intelephense-client",
+				"neilbrayfield.php-docblocker",
+				"xdebug.php-debug"
+			]
+		}
+	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
