@@ -24,6 +24,11 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: laravel
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data
+      - type: volume
+        source: laravel-db
+        target: /var/lib/postgresql/data
     ports:
       - '5432:5432'
+
+volumes:
+  laravel-db:
