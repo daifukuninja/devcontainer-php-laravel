@@ -2,7 +2,7 @@ FROM php:8.2-fpm
 COPY php.ini /usr/local/etc/php/
 
 RUN apt-get update \
-  && apt-get install -y git openssh-client zlib1g-dev mariadb-client vim libzip-dev libpq-dev libonig-dev zip unzip \
+  && apt-get install -y git openssh-client zlib1g-dev mariadb-client vim libzip-dev libpq-dev libonig-dev zip unzip sudo \
   && docker-php-ext-install zip pdo_pgsql mbstring bcmath
 
 # PHP実行・デバッグで必要なライブラリをインストール

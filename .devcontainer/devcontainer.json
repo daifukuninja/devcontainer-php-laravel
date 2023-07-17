@@ -5,7 +5,7 @@
 		"docker-compose.yml"
 	],
 	"workspaceFolder": "/workspace",
-	"service": "php",
+	"service": "php-base",
 	"customizations": {
 		"vscode": {
 			"extensions": [
